@@ -693,6 +693,7 @@ _get_files.has_logged_missing_file_error = False
 # Clang has a list: https://github.com/llvm/llvm-project/blob/b9f3b7f89a4cb4cf541b7116d9389c73690f78fa/clang/lib/Driver/Types.cpp#L293
 _get_files.c_source_extensions = ('.c', '.i')
 _get_files.cpp_source_extensions = ('.cc', '.cpp', '.cxx', '.c++', '.C', '.CC', '.cp', '.CPP', '.C++', '.CXX', '.ii')
+_get_files.cpp_module_header_source_extensions = ('.h',)
 _get_files.objc_source_extensions = ('.m',)
 _get_files.objcpp_source_extensions = ('.mm', '.M')
 _get_files.cuda_source_extensions = ('.cu', '.cui')
@@ -700,10 +701,11 @@ _get_files.opencl_source_extensions = ('.cl',)
 _get_files.openclxx_source_extensions = ('.clcpp',)
 _get_files.assembly_source_extensions = ('.s', '.asm')
 _get_files.assembly_needing_c_preprocessor_source_extensions = ('.S',)
-_get_files.source_extensions = _get_files.c_source_extensions + _get_files.cpp_source_extensions + _get_files.objc_source_extensions + _get_files.objcpp_source_extensions + _get_files.cuda_source_extensions + _get_files.opencl_source_extensions + _get_files.openclxx_source_extensions + _get_files.assembly_source_extensions + _get_files.assembly_needing_c_preprocessor_source_extensions
+_get_files.source_extensions = _get_files.c_source_extensions + _get_files.cpp_source_extensions + _get_files.cpp_module_header_source_extensions + _get_files.objc_source_extensions + _get_files.objcpp_source_extensions + _get_files.cuda_source_extensions + _get_files.opencl_source_extensions + _get_files.openclxx_source_extensions + _get_files.assembly_source_extensions + _get_files.assembly_needing_c_preprocessor_source_extensions
 _get_files.extensions_to_language_args = { # Note that clangd fails on the --language or -ObjC or -ObjC++ forms. See https://github.com/clangd/clangd/issues/1173#issuecomment-1226847416
     _get_files.c_source_extensions: '-xc',
     _get_files.cpp_source_extensions: '-xc++',
+    _get_files.cpp_module_header_source_extensions: '-xc++-header',
     _get_files.objc_source_extensions: '-xobjective-c',
     _get_files.objcpp_source_extensions: '-xobjective-c++',
     _get_files.cuda_source_extensions: '-xcuda',
